@@ -15,3 +15,8 @@ myvpc = ec2.describe_vpcs(
 resp = myvpc['Vpcs']
 
 print(resp)
+
+
+[default]
+aws_access_key_id = AKIATZQNSMYR77WEBJZS
+aws_secret_access_key = 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
