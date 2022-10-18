@@ -12,17 +12,12 @@ import boto3
 
 ec2=boto3.client('ec2')
 
+subnet = ec2.describe_subnets(Filters=[{'Name': 'vpc-id','Values': ['vpc-09b4fd70f6d38b41d']}])
 
-myvpc = ec2.describe_vpcs(Filters=[{'Name': 'tag:Name','Values': ['AWSCLI']}])
+subnet1 = subnet['Subnets']
 
-resp = myvpc['Vpcs']
-
-for vpc in resp:
-    vpcid=vpc['VpcId']
-#vpcid = resp['VpcId']
-
-print(vpcid)
-
+for i in subnet1:
+    print(i['SubnetId'])
 
 # [default]
 # aws_access_key_id = AKIATZQNSMYR77WEBJZS
